@@ -18,17 +18,11 @@
  * Includes
  */
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
-#include "stm32f4xx.h"
-#include "system_stm32f4xx.h"
-#include "misc.h"
+#include "stm32f4xx_conf.h"
 #include "core_cm4.h"
-#include "core_cmFunc.h"
-#include "stm32f4xx_tim.h"
-#include "stm32f4xx_gpio.h"
-#include "stm32f4xx_rcc.h"
-#include "stm32f4xx_usart.h"
 
 
 
@@ -51,10 +45,10 @@
 
 #define __NOP				asm("nop")
 
-#define __strncmp(str1, str2)		( 	strncmp( (char *)str1, (char *)str2, strlen( (char *)str2) ) 	)
-#define __strncpy(str1, str2)		( 	strncpy( (char *)str1, (char *)str2, strlen( (char *)str2) ) 	)
-#define __stnlen(str1)			( 	strlen(  (char *)str1 ) 					)
-#define __strncat(str1, str2)		( 	strncat( (char *)str1, 	 (char *)str2, 	strlen((char *)str2)) 	)
+#define __strncmp(str1, str2, args...)	( 	strncmp( (char *)str1, (char *)str2, ## args ) 	)
+#define __strncpy(str1, str2, args...)	( 	strncpy( (char *)str1, (char *)str2, ## args ) 	)
+#define __strlen(str1)			( 	strlen(  (char *)str1 			     ) 	)
+#define __strncat(str1, str2, args...)	( 	strncat( (char *)str1, 	 (char *)str2, ## args) )
 
 
 /********************************************************************
@@ -198,38 +192,9 @@ const static Mapping_GPIO_s Mapping_GPIO[nb_GPIO] = {
 /********************************************************************
  * Exported functions
  */
-
-/**------------------------------------------------------------------
- *
- * @brief	Init BSP
- *
- */
-void
-BSP_Init(
-		void  /**<[in] Aucun parametre d'entre. */
-);
-
-/**------------------------------------------------------------------
- *
- * @brief	Get Peripheral in string
- *
- */
-void
-toString_GetPeriphral(
-		GPIO_TypeDef* 	Peripheral,		/**<[in] Bus GPIOx */
-		uint8_t*	String			/**<[in] Buffer */
-);
-
-/**------------------------------------------------------------------
- *
- * @brief	Get Pin number in string
- *
- */
-void
-toString_GetPin(
-		uint16_t 		GpioPin,		/**<[in] Pin dont on veut la source */
-		uint8_t*		String			/**<[in] Buffer */
-);
+void BSP_Init			(void);
+void toString_GetPeriphral	(GPIO_TypeDef* Peripheral, uint8_t*	String);
+void toString_GetPin		(uint16_t GpioPin, uint8_t* String);
 
 
 

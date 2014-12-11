@@ -219,4 +219,5 @@ Console_AttenteNvPing(
 ) {
 	/*if(TSW_GetStatus(Timer_IdentifyTerminal) == STATUS_FINIS) 	return Console_Ping;
 	return Console_AttenteNouveauPing;*/
+	return 0;
 }

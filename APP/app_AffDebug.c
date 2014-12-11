@@ -54,9 +54,9 @@
 
 #define __IsDataDisplayOn(id)			(	DonneAffiche[id].toBeDisplayed == TRUE			)
 
-#define __IsDataChanged(id, buf)		(	__strncmp( DonneAffiche[id].Preivous_Value, buf ) != 0	)
-#define __CopyNewData(id, buf)			__strncpy( DonneAffiche[b_Affichage].Preivous_Value, (char *)buf )
-#define __GetDeltaStringLength(id, buf)		__stnlen( buf)  - __stnlen( DonneAffiche[id].Preivous_Value )
+#define __IsDataChanged(id, buf)		(	__strncmp( DonneAffiche[id].Preivous_Value, buf, __strlen(buf) ) != 0	)
+#define __CopyNewData(id, buf)			__strncpy( DonneAffiche[b_Affichage].Preivous_Value, (char *)buf , strlen((char *)buf))
+#define __GetDeltaStringLength(id, buf)		__strlen( buf)  - __strlen( DonneAffiche[id].Preivous_Value )
 #define __IsNewDataShorter(diff)		( 	diff < 0			)
 
 #define __TrBClMoy_SetValue_ms(str, val)	sprintf((char *)str , "%d ms", (int)(val/NB_TOURBOUCLE_ECHANTILLON))
@@ -70,11 +70,15 @@
  */
 typedef enum {
 
-	EtatTimestamp = 0,
-	TrBclMoy_ms,
+	#ifdef UTIL_TSW_H
+		EtatTimestamp = 0,
+		TrBclMoy_ms,
+	#else
+		DONOTDELETE = 0,
+	#endif
+
 
 	Etat_BrocheSI_Cam,
-
 	EtatPWM_SERVO_DIRECTION,
 	EtatPWM_SCLK_CAMERA,
 	EtatPWM_H_Bridge_A1,
@@ -122,35 +126,18 @@ typedef struct {
  * Private Fonctions prototypes
  */
 
-inline uint8_t
-Affichage_Intro (
-		void
-);
+static inline uint8_t Affichage_Intro 	(void);
+static inline uint8_t Affichage_Data 	(void);
 
-inline uint8_t
-Affichage_Data (
-		void
-);
-
-void
-Timestamp_toString(
-
-		toString_Possibilities_e	Field,
-		Mapping_GPIO_e 			IDMapping,
-		uint8_t*			pString
-);
-
-void
-TrBclMoy_toString(
-
-		toString_Possibilities_e	Field,
-		Mapping_GPIO_e 			IDMapping,
-		uint8_t*			pString
-);
+#ifdef UTIL_TSW_H
+	void Timestamp_toString(toString_Possibilities_e Field, Mapping_GPIO_e IDMapping, uint8_t* pString);
+	void TrBclMoy_toString(toString_Possibilities_e Field,	Mapping_GPIO_e IDMapping, uint8_t* pString);
+#endif
 
 /********************************************************************
  * Private variables
  */
+static 		TSW_s		TSW_TrBoucle;
 static 		uint32_t 	DureeTourBoucleMoyen_ms		=	0;
 static const	uint32_t	offsetColonne	[NB_COLONNES] 	= 	{
 
@@ -160,9 +147,12 @@ static const	uint32_t	offsetColonne	[NB_COLONNES] 	= 	{
 DonneAffiche_s DonneAffiche[nb_Donnes] = {
 
 /**				Nom				ID			Valeur char	Fonction toString			Is To Be Displayed */
+#ifdef UTIL_TSW_H
 /** Timestamp */	{	"Timestamp",			PIN_NULL,		"",		(pFunction)Timestamp_toString,		TRUE		},
 /** Tr de boucle moyen*/{	"Temps de Boucle Moyen",	PIN_NULL,		"",		(pFunction)TrBclMoy_toString,		TRUE		},
-
+#else
+/** DONOTDELETE*/	{	" ",	PIN_NULL,		"",		NULL,		FALSE		},
+#endif
 /** SI Cam */		{	"Impul SI (Camera)",		BROCHE_SI,		"",		(pFunction)GPIO_Value_toString,		TRUE		},
 
 /** PWM Servo */	{	"PWM Direction (Servo Futuba)",	PIN_SERVO_DRIECTION,	"",		(pFunction)PWM_Value_toString,		TRUE		},
@@ -202,8 +192,6 @@ Affichage_Main
 	}
 }
 
-static TSW_s	TSW_TrBoucle;
-
 /**------------------------------------------------------------------
  *
  * @brief	Setter la duree du tour de boucle
@@ -217,21 +205,13 @@ setDureeTourBoucle(
 
 	nbTourBoucle++;
 
-    	/*if(nbTourBoucle == NB_TOURBOUCLE_ECHANTILLON) {
+    	if(nbTourBoucle == NB_TOURBOUCLE_ECHANTILLON) {
 
     		DureeTourBoucleMoyen_ms = TSW_GetElapsedTime(&TSW_TrBoucle);
 
     		TSW_Start(&TSW_TrBoucle, 1000);
     		nbTourBoucle = 0;
-    	}*/
-
-    	if(nbTourBoucle == 100) {
-
-		DureeTourBoucleMoyen_ms = TSW_GetElapsedTime(&TSW_TrBoucle);
-
-		TSW_Start(&TSW_TrBoucle, 5000);
-		nbTourBoucle = 0;
-	}
+    	}
 }
 
 
@@ -345,7 +325,7 @@ Affichage_Data
 	return Affichage_DataPinAndValue;
 }
 
-
+#ifdef UTIL_TSW_H
 void
 Timestamp_toString(
 
@@ -405,5 +385,5 @@ TrBclMoy_toString(
 		default:		break;
 	}
 }
-
+#endif
 

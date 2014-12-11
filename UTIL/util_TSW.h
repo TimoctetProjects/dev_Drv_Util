@@ -15,6 +15,7 @@
  * Includes
  */
 #include "bsp_carte.h"
+#include "util_Console.h"
 
 /********************************************************************
  * Exported defines
@@ -49,25 +50,28 @@ typedef struct {
 /********************************************************************
  * Exported Macros
  */
-#define	__TSW_New(nAME)	 	TSW_s nAME; TSW_StructInit(&(nAME))
-#define __TSW_IsFinished(tSW)	( tSW.Status 	== STATUS_FINIS	)
-#define __TSW_IsActive(tSW)	( tSW.Etat 	== ETAT_ACTIF	)
+#define	TSW_New(nAME)	 	TSW_s nAME = {ETAT_INACTIF, STATUS_FINIS, 0, 0, 0, NULL, NULL}
+
+#define __TSW_IsActive(tSW)	( (tSW.Etat   == ETAT_ACTIF) 		? TRUE : FALSE )
+#define __TSW_isFinished(tSW)	( (tSW.Status == STATUS_FINIS) 		? TRUE : FALSE )
+#define __TSW_isRunning(tSW)	( (tSW.Status == STATUS_ENCOURS) 	? TRUE : FALSE )
 
 /********************************************************************
  * Exported Fonction
  */
+void	 TSW_StartUntil		(TSW_s*	Timer, uint32_t Until_ms, uint32_t Value_ms);
 void 	 TSW_Start		(TSW_s* Timer, uint32_t  Value_ms);
 void	 TSW_StructInit		(TSW_s* Timer);
 void 	 TSW_Reset		(TSW_s* Timer);
+void 	 TSW_Stop		(TSW_s* Timer);
+void	 TSW_Resume		(TSW_s*	Timer);
+uint32_t TSW_Suspend		(TSW_s* Timer, TSW_ListeChoixValeurs Choix);
 uint32_t TSW_GetElapsedTime	(TSW_s* Timer);
 uint32_t TSW_GetRemainingTime	(TSW_s* Timer);
 uint32_t TSW_GetElapsedTime	(TSW_s* Timer);
 uint32_t TSW_GetTimestamp	(void);
 
-// TODO
-uint32_t TSW_Suspend(TSW_s* Timer, TSW_ListeChoixValeurs Choix);
-
-
+void TSW_VALIDATION(void);
 
 
 #endif //UTIL_TSW_H

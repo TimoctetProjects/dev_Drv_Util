@@ -66,7 +66,7 @@
 #define	__SetRunningState(bool, Periph, Channel)	( PWM[ PWM_Save_GetTimPeriph(Periph) ][ PWM_Save_GetTimChannel(Channel) ].RunningState 	    = bool	)
 #define	__SavePeriod_uS(Periode_us, Periph, Channel)	( PWM[ PWM_Save_GetTimPeriph(Periph) ][ PWM_Save_GetTimChannel(Channel) ].SavePeriode_us    = Periode_us)
 
-#define __SetPWMOffString(str)				__strncat(  str, 	 OFF_STRING)
+#define __SetPWMOffString(str)				__strncat(  str, 	 OFF_STRING, __strlen(OFF_STRING))
 #define __PeriodeToFrequencyString(str, periode) 	snprintf ( (char *) str, 3, "%d", 		(int)(1000000 / periode)	)
 #define __RatioToString(str, ratio)		 	snprintf ( (char *) str, NB_CHAR_POURCENTAGE, 	" %d pr100", 	ratio		)
 #define __SetRatioString(str, Ratio)			strncat  ( (char *) str, (char *) Ratio, 	NB_CHAR_POURCENTAGE		)

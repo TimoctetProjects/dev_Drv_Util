@@ -1,27 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Dev_DrvPWM.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Dev_DrvPWM -TC:\CooCox\CoIDE\configuration\ProgramData\Dev_DrvPWM/arm-gcc-link.ld -g">
-      <target file="Dev_DrvPWM.elf" lastModified="14a30e82f20">
-         <source file="..\obj\stm32f4xx_usart.o" lastModified="14a2f40728e"/>
-         <source file="..\obj\stm32f4xx_pwr.o" lastModified="14a2f4072ed"/>
-         <source file="..\obj\app_AffDebug.o" lastModified="14a30e82a5c"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14a2f4073b0"/>
-         <source file="..\obj\drv_InputCapture.o" lastModified="14a2f42b77b"/>
-         <source file="..\obj\main.o" lastModified="14a30e82ad0"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14a2f407549"/>
-         <source file="..\obj\drv_USART.o" lastModified="14a3063587f"/>
-         <source file="..\obj\bsp_carte.o" lastModified="14a2f42b8f1"/>
-         <source file="..\obj\util_TSW.o" lastModified="14a30e82b46"/>
-         <source file="..\obj\printf.o" lastModified="14a30661726"/>
-         <source file="..\obj\drv_TimBase.o" lastModified="14a2f42b9db"/>
-         <source file="..\obj\util_Console.o" lastModified="14a30e82bc7"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14a2f407882"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14a2f4078dc"/>
-         <source file="..\obj\syscalls.o" lastModified="14a2f40792b"/>
-         <source file="..\obj\misc.o" lastModified="14a2f407986"/>
-         <source file="..\obj\drv_GPIO.o" lastModified="14a30e82c42"/>
-         <source file="..\obj\drv_PWM.o" lastModified="14a30e82cf8"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="14a2f407b8f"/>
+      <target file="Dev_DrvPWM.elf" lastModified="14a3bbba1ca">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="14a34666e2b"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="14a34666eb9"/>
+         <source file="..\obj\stm32f4xx_pwr.o" lastModified="14a34666f2d"/>
+         <source file="..\obj\app_AffDebug.o" lastModified="14a3b87c3d0"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14a34666ffc"/>
+         <source file="..\obj\drv_InputCapture.o" lastModified="14a3b87c452"/>
+         <source file="..\obj\main.o" lastModified="14a3bbb9f2b"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14a34667182"/>
+         <source file="..\obj\drv_USART.o" lastModified="14a3b87c54d"/>
+         <source file="..\obj\bsp_carte.o" lastModified="14a3b87c5d4"/>
+         <source file="..\obj\util_TSW.o" lastModified="14a3b87c654"/>
+         <source file="..\obj\printf.o" lastModified="14a3b87c6ea"/>
+         <source file="..\obj\drv_TimBase.o" lastModified="14a3b87c75d"/>
+         <source file="..\obj\util_Console.o" lastModified="14a3b8735d0"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14a346674fc"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14a34667563"/>
+         <source file="..\obj\syscalls.o" lastModified="14a346675c7"/>
+         <source file="..\obj\util_Inversion.o" lastModified="14a3bbb9f9c"/>
+         <source file="..\obj\misc.o" lastModified="14a3466762b"/>
+         <source file="..\obj\drv_GPIO.o" lastModified="14a3b8736bc"/>
+         <source file="..\obj\drv_PWM.o" lastModified="14a3b873771"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14a3466783b"/>
       </target>
    </processor>
 </history>

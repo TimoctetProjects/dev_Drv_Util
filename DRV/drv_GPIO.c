@@ -26,8 +26,8 @@
 /********************************************************************
  * Private Macros
  */
-#define	__SetEtatActifString(str)		__strncat (str, ETAT_ACTIF_STRING)
-#define	__SetEtatInactifString(str)		__strncat (str, ETAT_INACTIF_STRING)
+#define	__SetEtatActifString(str)		__strncat (str, ETAT_ACTIF_STRING,  __strlen(ETAT_ACTIF_STRING))
+#define	__SetEtatInactifString(str)		__strncat (str, ETAT_INACTIF_STRING, __strlen(ETAT_INACTIF_STRING))
 
 /********************************************************************
  * Private variables

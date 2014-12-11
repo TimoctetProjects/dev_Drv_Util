@@ -65,13 +65,167 @@ static inline void InsertTSW(TSW_s* NewTimer);
 /***************************************************************************************************
  * Exported Functions definition
  */
+
+#if 0
+
+//#define _printf		printf
+
+static TSW_s Tmr0;
+static TSW_s Tmr1;
+static TSW_s Tmr2;
+
+void TSW_PrintList()
+{
+	uint32_t i = 0;
+	TSW_s* pCherche;
+
+	__Console_Send("Liste:\n");
+
+	if (FirstTSW.NextTimer == NULL)	{
+		__Console_Send("  vide!\n");
+		return;
+	}
+
+	pCherche = FirstTSW.NextTimer;
+
+	do {
+
+		__Console_Send("  %d:0x%08X Start=%08d End=%08d Status=%d\n", (int)i, (unsigned int *)pCherche,
+				(int)pCherche->Start_Value_ms, (int)pCherche->Stop_Value_ms, (int)pCherche->Status);
+		i++;
+		pCherche = pCherche->NextTimer;
+
+	} while (pCherche != NULL);
+}
+
+
+
+void TSW_VALIDATION(void)
+{
+	TSW_Start(&Tmr0, 1000);
+	TSW_Start(&Tmr1, 3000);
+	TSW_Start(&Tmr2, 5000);
+	TSW_PrintList();
+
+	TSW_Start(&Tmr0, 1000);
+	TSW_Start(&Tmr1, 5000);
+	TSW_Start(&Tmr2, 3000);
+	TSW_PrintList();
+
+	TSW_Start(&Tmr0, 3000);
+	TSW_Start(&Tmr1, 1000);
+	TSW_Start(&Tmr2, 5000);
+	TSW_PrintList();
+
+	TSW_Start(&Tmr0, 3000);
+	TSW_Start(&Tmr1, 5000);
+	TSW_Start(&Tmr2, 1000);
+	TSW_PrintList();
+
+	TSW_Start(&Tmr0, 5000);
+	TSW_Start(&Tmr1, 1000);
+	TSW_Start(&Tmr2, 3000);
+	TSW_PrintList();
+
+	TSW_Start(&Tmr0, 10000);
+	TSW_Start(&Tmr2, 1000);
+	TSW_PrintList();
+
+	int etape=0;
+	__Console_Send("\n");
+	while(1)
+	{
+		if(__TSW_isFinished(Tmr0) == TRUE) {
+			 TSW_Stop(&Tmr0);
+			 __Console_Send("Tmr0 End");
+		}
+
+		switch (etape)
+		{
+			case 0:
+				TSW_Start(&Tmr1, 2000);
+				etape++;
+				break;
+
+			case 1:
+				if (__TSW_isRunning(Tmr1))
+					break;
+
+				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__Console_Send("\n");
+
+				TSW_Start(&Tmr1, 1000);
+				etape++;
+				break;
+
+			case 2:
+				if (__TSW_isRunning(Tmr1))
+					break;
+
+				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__Console_Send("\n");
+
+				__Console_Send("TSW_Pause(&Tmr0)\n");
+				TSW_Suspend(&Tmr0, TSW_ElapsedTime);
+
+				TSW_Start(&Tmr1, 1000);
+				etape++;
+				break;
+
+			case 3:
+				if (__TSW_isRunning(Tmr1))
+					break;
+
+				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__Console_Send("\n");
+
+				__Console_Send("TSW_Resume(&Tmr0)\n");
+				TSW_Resume(&Tmr0);
+
+				TSW_Start(&Tmr1, 2000);
+				etape++;
+				break;
+
+			case 4:
+				if (__TSW_isRunning(Tmr1))
+					break;
+
+				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__Console_Send("\n");
+
+				etape++;
+				break;
+
+			default:
+				break;
+		}
+	}
+}
+#endif
+
 /**-------------------------------------------------------------------------------------------------
  * @brief
  */
 void
 TSW_Start(
-	TSW_s*	 Timer,		/**<[in] */
-	uint32_t Value_ms	/**<[in] */
+	TSW_s*	 Timer,		/**<[in] Adresse du timer */
+	uint32_t Value_ms	/**<[in] Valeur du timer en millisecondes */
 ) {
 
 	if(Timer->Status != STATUS_ENCOURS)	InsertTSW(Timer);
@@ -83,11 +237,29 @@ TSW_Start(
 }
 
 /**-------------------------------------------------------------------------------------------------
+ * @brief	Demarrer le timer a partir d'une valeur (permet reglage plus precis)
+ */
+void
+TSW_StartUntil(
+	TSW_s*	 Timer,		/**<[in] Adresse du timer */
+	uint32_t Until_ms,	/**<[in] Valeur a partir de laquelle compter */
+	uint32_t Value_ms	/**<[in] Valeur du timer en millisecondes */
+) {
+
+	if(Timer->Status != STATUS_ENCOURS)	InsertTSW(Timer);
+
+	Timer->Etat 		= ETAT_ACTIF;
+	Timer->Status 		= STATUS_ENCOURS;
+	Timer->Stop_Value_ms 	= Until_ms + Value_ms;
+	Timer->Start_Value_ms 	= msTicks;
+}
+
+/**-------------------------------------------------------------------------------------------------
  * @brief
  */
 void
 TSW_StructInit(
-	TSW_s*	 Timer	/**<[in] */
+	TSW_s*	 Timer	/**<[in]  Adresse du timer */
 ) {
 
 	Timer->Etat		= ETAT_INACTIF;
@@ -104,7 +276,7 @@ TSW_StructInit(
  */
 void
 TSW_Reset(
-	TSW_s*	 Timer	/**<[in] */
+	TSW_s*	 Timer	/**<[in]  Adresse du timer */
 ) {
 
 	DeleteTSW(Timer);
@@ -118,14 +290,62 @@ TSW_Reset(
 
 /**-------------------------------------------------------------------------------------------------
  * @brief	Suspension du timer
- * @return	Valeur restante
+ * @return	Valeur restante ou ecoulee
  */
 uint32_t
 TSW_Suspend(
-	TSW_s*	 		Timer,	/**<[in] */
-	TSW_ListeChoixValeurs	Choix	/**<[in] */
+	TSW_s*	 		Timer,	/**<[in]  Adresse du timer */
+	TSW_ListeChoixValeurs	Choix	/**<[in]  Retourne le temps restant ou le temps ecouler en
+	 	 	 	 	 	  fontion de ce choix :
+	 	 	 	 	 	  TSW_ElapsedTime | TSW_RemainingTime */
 ) {
+	if(Timer->Status == STATUS_FINIS)	return 0;
 
+	DeleteTSW(Timer);
+	Timer->Etat 		= ETAT_INACTIF;
+	Timer->Status		= STATUS_OK;
+	Timer->NextTimer	= NULL;
+	Timer->PreviousTimer	= NULL;
+	Timer->Pause_Value_ms	= Timer->Stop_Value_ms - msTicks;
+
+	switch(Choix) {
+		case TSW_ElapsedTime:		return msTicks - Timer->Start_Value_ms;
+		case TSW_RemainingTime:		return Timer->Stop_Value_ms - msTicks;
+	}
+
+	return 0;
+}
+
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Reprise du timer
+ */
+void
+TSW_Resume(
+	TSW_s*	 	Timer	/**<[in]  Adresse du timer */
+) {
+	//if(__TSW_isRunning(Timer))	return;
+
+
+	TSW_Start(Timer, Timer->Pause_Value_ms);
+}
+
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Arret du timer
+ */
+void
+TSW_Stop(
+	TSW_s*	 	Timer	/**<[in]  Adresse du timer */
+) {
+	if(Timer->Status == STATUS_FINIS)	return;
+
+	DeleteTSW(Timer);
+	Timer->Etat 		= ETAT_INACTIF;
+	Timer->Status		= STATUS_FINIS;
+	Timer->NextTimer	= NULL;
+	Timer->PreviousTimer	= NULL;
+	Timer->Pause_Value_ms	= 0;
+	Timer->Start_Value_ms	= 0;
+	Timer->Stop_Value_ms	= 0;
 }
 
 /**-------------------------------------------------------------------------------------------------
@@ -146,7 +366,7 @@ TSW_GetTimestamp(
  */
 uint32_t
 TSW_GetRemainingTime(
-		TSW_s* Timer	/**<[in] */
+		TSW_s* Timer	/**<[in]  Adresse du timer */
 ) {
 
 	if(Timer->Status == STATUS_FINIS)	return 0;
@@ -159,7 +379,7 @@ TSW_GetRemainingTime(
  */
 uint32_t
 TSW_GetElapsedTime(
-		TSW_s* Timer	/**<[in] */
+		TSW_s* Timer	/**<[in]  Adresse du timer */
 ) {
 	return (msTicks - Timer->Start_Value_ms);
 }
@@ -171,6 +391,7 @@ void
 SysTick_Handler(
 	void
 ) {
+	__disable_irq();
 
 	msTicks++;
 	if(msTicks == TAILLE_TSW_32_bits) {
@@ -191,6 +412,8 @@ SysTick_Handler(
 
 
 	}	CurrentTSW = &FirstTSW;
+
+	__enable_irq();
 }
 
 

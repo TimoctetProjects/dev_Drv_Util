@@ -134,8 +134,8 @@ static const uint8_t ColorString[nb_Couleurs][COLOR_STRING_LENGTH] = {
 #define __SetFrequencyString(str, freq)			strncat((char *)str, (char *)freq, 		NB_CHAR_FREQUENCY	)
 #define __InsertPinSeparator(str)			strncat((char *)str, 	"-", 			1			)
 
-#define __SetFrequencyUnit_Hz(str)		__strncat(str, 	 FREQUENCY_UNIT_Hz)
-#define __SetFrequencyUnit_KHz(str)		__strncat(str, 	 FREQUENCY_UNIT_KHz)
+#define __SetFrequencyUnit_Hz(str)		__strncat(str, 	 FREQUENCY_UNIT_Hz, __strlen(FREQUENCY_UNIT_KHz))
+#define __SetFrequencyUnit_KHz(str)		__strncat(str, 	 FREQUENCY_UNIT_KHz, __strlen(FREQUENCY_UNIT_KHz))
 
 
 

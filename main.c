@@ -15,7 +15,7 @@
  * Includes
  */
 #include "app_AffDebug.h"
-#include "drv_PWM.h"
+
 
 /**-------------------------------------------------------------------
  * Main function
@@ -24,8 +24,8 @@
 int
 main(
 	void
-) {
-	__TSW_New(TSW_AffichageRefresh);
+){
+	TSW_New(TSW_AffichageRefresh);
 
 	//--------------------------------------------------------------
 	//------------ Initialisations
@@ -34,9 +34,11 @@ main(
 
 	while(1) {
 
+
 		#ifdef  APP_AFFDEBUG_H
 			Console_main();
-			if( __TSW_IsFinished(TSW_AffichageRefresh) ) {
+			//TSW_VALIDATION();
+			if( __TSW_isFinished(TSW_AffichageRefresh) == TRUE ) {
 				TSW_Start(&TSW_AffichageRefresh, 50);
 				Affichage_Main();
 			}	setDureeTourBoucle();
