@@ -5,7 +5,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_Inversion.h" lastModified="14a3b885083">
+      <source file="..\..\..\UTIL\util_Inversion.h" lastModified="14a3e3c7d09">
          <include file="..\..\..\BSP\bsp_carte.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14a34187d0f">
@@ -83,6 +83,10 @@
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14a2f2715c9">
+      </source>
+      <source file="..\..\..\main.c" lastModified="14a3e3cd148">
+         <include file="..\..\..\APP\app_AffDebug.h"/>
+         <include file="..\..\..\UTIL\util_Inversion.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14a2f28c7e4">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>

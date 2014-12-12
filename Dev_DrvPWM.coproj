@@ -113,8 +113,8 @@
     <File name="APP/app_AffDebug.h" path="APP/app_AffDebug.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_syscfg.c" path="cmsis_lib/source/stm32f4xx_syscfg.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
-    <File name="stdio" path="" type="2"/>
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
+    <File name="stdio" path="" type="2"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_pwr.c" path="cmsis_lib/source/stm32f4xx_pwr.c" type="1"/>
@@ -132,9 +132,9 @@
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
     <File name="UTIL/util_Inversion.c" path="UTIL/util_Inversion.c" type="1"/>
-    <File name="UTIL/util_Console.h" path="UTIL/util_Console.h" type="1"/>
     <File name="DRV/drv_USART.h" path="DRV/drv_USART.h" type="1"/>
     <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
+    <File name="UTIL/util_Console.h" path="UTIL/util_Console.h" type="1"/>
     <File name="DRV/drv_TimBase.h" path="DRV/drv_TimBase.h" type="1"/>
     <File name="cmsis_lib/include" path="" type="2"/>
     <File name="main.c" path="main.c" type="1"/>

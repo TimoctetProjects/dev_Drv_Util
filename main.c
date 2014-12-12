@@ -15,6 +15,7 @@
  * Includes
  */
 #include "app_AffDebug.h"
+#include "util_Inversion.h"
 
 
 /**-------------------------------------------------------------------
@@ -25,12 +26,18 @@ int
 main(
 	void
 ){
+	uint8_t test;
+	uint8_t test2 = 0xF0;
+
 	TSW_New(TSW_AffichageRefresh);
 
 	//--------------------------------------------------------------
 	//------------ Initialisations
 	BSP_Init();
 	SysTick_Config(CONFIG_SYSCLOCK_1ms);
+
+	Inversion_LSBMSB_uint8(&test2);
+	__NOP;
 
 	while(1) {
 
