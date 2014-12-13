@@ -39,8 +39,9 @@
  * Exported Fonction
  */
 void Inversion_TabChar		(uint8_t* Tab, uint32_t Size_octet);
-void Inversion_LSBMSB_uint8	(uint8_t* Value);
-uint32_t Test_(uint32_t Caca, ...);
+void Inversion_LSBMSB_u8	(uint8_t*  Value);
+void Inversion_LSBMSB_u16	(uint16_t* Value);
+void Inversion_LSBMSB_u32	(uint32_t* Value);
 
 
 #endif /**UTIL_INVERSION_H*/

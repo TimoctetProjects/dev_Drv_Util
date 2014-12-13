@@ -8,7 +8,7 @@
 <perspectiveBar/>
 <page focus="true" label="Workspace - CooCox CoBuilder">
 <editors>
-<editorArea activeWorkbook="org.eclipse.ui.internal.EditorStack@dc8082">
+<editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -21,18 +21,6 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
-<part id="13"/>
-<part id="14"/>
-<part id="15"/>
-<part id="16"/>
-<part id="17"/>
-<part id="18"/>
-<part id="19"/>
-<part id="20"/>
 </presentation>
 </folder>
 </info>
@@ -60,77 +48,29 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/UTIL/util_TSW.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2200" selectionTopPixel="360"/>
 </editor>
-<editor focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="886" selectionTopPixel="101"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="664" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="app_AffDebug.c" partName="app_AffDebug.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/APP/app_AffDebug.c" title="app_AffDebug.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/APP/app_AffDebug.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/APP/app_AffDebug.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="65" selectionOffset="8811" selectionTopPixel="4335"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="5261" selectionTopPixel="2355"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="bsp_carte.c" partName="bsp_carte.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/BSP/bsp_carte.c" title="bsp_carte.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/BSP/bsp_carte.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/BSP/bsp_carte.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2251" selectionTopPixel="840"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util_Console.c" partName="util_Console.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Console.c" title="util_Console.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Console.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/UTIL/util_Console.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4995" selectionTopPixel="2640"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_gpio.c" partName="stm32f4xx_gpio.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_gpio.c" title="stm32f4xx_gpio.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_gpio.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_gpio.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8081" selectionTopPixel="2550"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_usart.c" partName="stm32f4xx_usart.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_usart.c" title="stm32f4xx_usart.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_usart.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/cmsis_lib/source/stm32f4xx_usart.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="17143" selectionTopPixel="5910"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="printf.c" partName="printf.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/stdio/printf.c" title="printf.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/stdio/printf.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/stdio/printf.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="752" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" partName="stm32f4xx.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_boot/stm32f4xx.h" title="stm32f4xx.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_boot/stm32f4xx.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/cmsis_boot/stm32f4xx.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2860" selectionTopPixel="1268"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" partName="stdio.h" title="stdio.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\stdio.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\stdio.h" project="Dev_DrvPWM"/>
-<editorState selectionHorizontalPixel="0" selectionLength="95" selectionOffset="5159" selectionTopPixel="2490"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" partName="startup_stm32f4xx.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c" title="startup_stm32f4xx.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="14795" selectionTopPixel="3810"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="util_Inversion.h" partName="util_Inversion.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.h" title="util_Inversion.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/UTIL/util_Inversion.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="735" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="app_AffDebug.h" partName="app_AffDebug.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/APP/app_AffDebug.h" title="app_AffDebug.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/APP/app_AffDebug.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/APP/app_AffDebug.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="526" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="1232" selectionTopPixel="315"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drv_PWM.h" partName="drv_PWM.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_PWM.h" title="drv_PWM.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_PWM.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/DRV/drv_PWM.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="517" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drv_TimBase.h" partName="drv_TimBase.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_TimBase.h" title="drv_TimBase.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_TimBase.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/DRV/drv_TimBase.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="492" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util_Inversion.h" partName="util_Inversion.h" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.h" title="util_Inversion.h" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/UTIL/util_Inversion.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1394" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drv_GPIO.c" partName="drv_GPIO.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_GPIO.c" title="drv_GPIO.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_GPIO.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/DRV/drv_GPIO.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="797" selectionTopPixel="195"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drv_PWM.c" partName="drv_PWM.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_PWM.c" title="drv_PWM.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/DRV/drv_PWM.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/DRV/drv_PWM.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3275" selectionTopPixel="795"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" partName="string.h" title="string.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\string.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\string.h" project="Dev_DrvPWM"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="953" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="util_Inversion.c" partName="util_Inversion.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.c" title="util_Inversion.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.c" workbook="org.eclipse.ui.internal.EditorStack@dc8082">
+<editor focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="util_Inversion.c" partName="util_Inversion.c" path="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.c" title="util_Inversion.c" tooltip="C:/CooCox/CoIDE/workspace/Dev_DrvPWM/UTIL/util_Inversion.c" workbook="org.eclipse.ui.internal.EditorStack@dc8082">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Dev_DrvPWM/UTIL/util_Inversion.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2698" selectionTopPixel="945"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3393" selectionTopPixel="540"/>
 </editor>
 </editors>
 <views>
@@ -330,64 +270,46 @@
 <view id="org.eclipse.debug.ui.ExpressionView"/>
 <view id="org.eclipse.cdt.ui.callHierarchy"/>
 <view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
-<fastViewBars>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@6074b1" orientation="512" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="0">
-<fastViews>
-<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.3"/>
+<fastViewBars>&#x0A;<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@6074b1" orientation="512" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="0">&#x0A;<fastViews>&#x0A;<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@6074b1">
-<folder appearance="2" expanded="0">
-<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@6074b1">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.74960214" ratioLeft="1413" ratioRight="472" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6074b1">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.74960214" ratioLeft="1413" ratioRight="472" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6074b1">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@17dcb96" ratio="0.6751864" ratioLeft="634" ratioRight="305" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6074b1">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@17dcb96" ratio="0.6751864" ratioLeft="634" ratioRight="305" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6074b1">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@58ed9a" ratio="0.49973476" ratioLeft="942" ratioRight="943" relationship="2" relative="org.eclipse.ui.internal.ViewStack@17dcb96">
-<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
-<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@58ed9a" ratio="0.49973476" ratioLeft="942" ratioRight="943" relationship="2" relative="org.eclipse.ui.internal.ViewStack@17dcb96">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@575836" ratio="0.74960214" ratioLeft="1413" ratioRight="472" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6074b1">
-<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">
-<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@575836" ratio="0.74960214" ratioLeft="1413" ratioRight="472" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6074b1">&#x0A;<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -401,157 +323,162 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/UTIL/util_Inversion.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/UTIL/util_Inversion.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/stdio/printf.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/APP/app_AffDebug.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/cmsis_boot/stm32f4xx.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/APP/app_AffDebug.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Dev_DrvPWM/UTIL/util_Inversion.h"/>
 </editors>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="14795" y="0"/>
+<item historyLabel="util_Inversion.h" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="1878" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="990" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="863" y="0"/>
+</item>
+<item historyLabel="printf.c" index="3">
+<position info="not_deleted" x="752" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="846" y="6"/>
+</item>
+<item historyLabel="util_Inversion.h" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="app_AffDebug.h" index="4">
+<position info="not_deleted" x="526" y="7"/>
+</item>
+<item historyLabel="util_Inversion.h" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="stm32f4xx.h" index="5">
+<position info="not_deleted" x="2860" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="app_AffDebug.c" index="6">
+<position info="not_deleted" x="5261" y="14"/>
+</item>
+<item historyLabel="app_AffDebug.h" index="4">
+<position info="not_deleted" x="1232" y="14"/>
 </item>
 <item historyLabel="main.c" index="1">
-<position info="not_deleted" x="660" y="0"/>
+<position info="not_deleted" x="664" y="0"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2441" y="0"/>
+<position info="not_deleted" x="2358" y="2"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2476" y="0"/>
+<position info="not_deleted" x="1878" y="0"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
+<position info="not_deleted" x="2311" y="0"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
+<position info="not_deleted" x="2117" y="51"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
+<position info="not_deleted" x="2215" y="0"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
+<position info="not_deleted" x="2117" y="51"/>
 </item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="14795" y="0"/>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="2179" y="0"/>
 </item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="660" y="0"/>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="2220" y="46"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="4194" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="4284" y="2"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="4276" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1324" y="19"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="3261" y="19"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1368" y="20"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="2274" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1415" y="20"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="4178" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1319" y="135"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="4010" y="8"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1355" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="2286" y="33"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="2249" y="0"/>
+</item>
+<item historyLabel="util_Inversion.c" index="0">
+<position info="not_deleted" x="3923" y="2"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
 <position/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2476" y="0"/>
+<position info="not_deleted" x="4686" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1415" y="20"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
+<position info="not_deleted" x="4759" y="0"/>
+</item>
+<item historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="1437" y="8"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
+<position info="not_deleted" x="5692" y="0"/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
+<position/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
+<position/>
 </item>
 <item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2668" y="0"/>
+<position info="not_deleted" x="3393" y="0"/>
 </item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2625" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2627" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2547" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="660" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="910" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="14795" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="910" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="660" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="910" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="14795" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="910" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="660" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="886" y="0"/>
-</item>
-<item active="true" historyLabel="util_Inversion.c" index="0">
-<position info="not_deleted" x="2698" y="0"/>
+<item active="true" historyLabel="util_Inversion.h" index="7">
+<position info="not_deleted" x="735" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -560,6 +487,9 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="app_AffDebug.h" tooltip="Dev_DrvPWM/APP/app_AffDebug.h">
+<persistable path="/Dev_DrvPWM/APP/app_AffDebug.h"/>
+</file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\string.h">
 <persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q2\arm-none-eabi\include\string.h" project="Dev_DrvPWM"/>
 </file>
@@ -580,9 +510,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drv_PWM.h" tooltip="Dev_DrvPWM/DRV/drv_PWM.h">
 <persistable path="/Dev_DrvPWM/DRV/drv_PWM.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="app_AffDebug.h" tooltip="Dev_DrvPWM/APP/app_AffDebug.h">
-<persistable path="/Dev_DrvPWM/APP/app_AffDebug.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c">
 <persistable path="/Dev_DrvPWM/cmsis_boot/startup/startup_stm32f4xx.c"/>

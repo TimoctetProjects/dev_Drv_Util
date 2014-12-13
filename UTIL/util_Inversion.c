@@ -21,6 +21,9 @@
 /***************************************************************************************************
  * Private macros
  */
+#define __InversionPrintf(arg ...)	printf(...)
+
+
 
 /***************************************************************************************************
  * Private Types
@@ -36,6 +39,42 @@
 /***************************************************************************************************
  * Exported Functions definition
  */
+
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Validation des inversions
+ */
+
+#if	0
+
+#define	INVERSIONTESTVALUE_8	0xF
+#define INVERSIONTESTVALUE_16	0xFF
+#define INVERSIONTESTVALUE_32	0xFFFF
+
+#define __IsInversionSuccessful(iNV1, iNV2, iNV3) 	\
+		(test8 	== INVERSIONTESTVALUE_8)  	\
+ 	&& 	(test16 == INVERSIONTESTVALUE_16) 	\
+	&&	(test32 == INVERSIONTESTVALUE_32) ?	\
+			STATUS_OK : STATUS_KO
+
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Validation de l'inversion
+ */
+Status_e
+Inversion_Validation(
+	void
+) {
+	uint8_t 	test8 	= INVERSIONTESTVALUE_8		<< 4;
+	uint16_t 	test16 	= INVERSIONTESTVALUE_16 	<< 8;
+	uint32_t 	test32	= INVERSIONTESTVALUE_32 	<< 16;
+
+	Inversion_LSBMSB_u8 (&test8 );
+	Inversion_LSBMSB_u16(&test16);
+	Inversion_LSBMSB_u32(&test32);
+
+	return __IsInversionSuccessful(test8, test16, test32);
+}
+#endif
+
 /**-------------------------------------------------------------------------------------------------
  * @brief	Inversion d'un tableau de char
  */
@@ -65,49 +104,70 @@ Inversion_TabChar(
 }
 
 /**-------------------------------------------------------------------------------------------------
- * @brief	Inversion d'une valeur uint32_t : LSB <-> MSB
+ * @brief	Inversion d'une valeur uint8_t : LSB <-> MSB
  */
 void
-Inversion_LSBMSB_uint8(
-	uint8_t* Value		/**<[in] Pointeur sur la valeur a inverser */
+Inversion_LSBMSB_u8(
+	uint8_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
 ) {
 
 	uint8_t  b_Inversion = 0, MASK = 0x1;
-	uint8_t* value_temp = (uint8_t *) malloc(sizeof(uint8_t));
 	uint8_t valueInv = 0;
-
-	memset(value_temp, 0, 1);
 
 	MASK <<= 7;
 
 	for(b_Inversion=0; b_Inversion<8; b_Inversion++) {
 
-		*value_temp = ( *Value & (MASK >> b_Inversion) ) >> ((8 - 1) - b_Inversion);
-		valueInv |= *value_temp << b_Inversion;
+		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((8 - 1) - b_Inversion) << b_Inversion;
 	}
 
-	* Value = valueInv;
-
-	free(value_temp);
+	*pValue = valueInv;
 }
 
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Inversion d'une valeur uint16_t : LSB <-> MSB
+ */
 void
-Inversion_LSBMSB(
-	void* 		Value,
-	uint32_t	Size_octets
+Inversion_LSBMSB_u16(
+	uint16_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
 ) {
 
-	uint32_t  b_Inversion;
-	uint32_t* value_temp = (uint32_t *) malloc(sizeof(uint32_t));
+	uint8_t  b_Inversion 	= 0;
+	uint16_t MASK 		= 0x1;
+	uint16_t valueInv	 = 0;
 
-	memset(value_temp, 0, 1);
+	MASK <<= 15;
 
-	for(b_Inversion=0; b_Inversion< (8 * Size_octets); b_Inversion++) {
+	for(b_Inversion=0; b_Inversion<16; b_Inversion++) {
 
+		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((16 - 1) - b_Inversion) << b_Inversion;
 	}
 
-	free(value_temp);
+	*pValue = valueInv;
 }
+
+/**-------------------------------------------------------------------------------------------------
+ * @brief	Inversion d'une valeur uint32_t : LSB <-> MSB
+ */
+void
+Inversion_LSBMSB_u32(
+		uint32_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
+) {
+
+	uint8_t  b_Inversion 	= 0;
+	uint32_t MASK 		= 0x1;
+	uint32_t valueInv 	= 0;
+
+	MASK <<= 31;
+
+	for(b_Inversion=0; b_Inversion<32; b_Inversion++) {
+
+		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((32 - 1) - b_Inversion) << b_Inversion;
+	}
+
+	*pValue = valueInv;
+}
+
 
 /***************************************************************************************************
  * Private Functions definition
