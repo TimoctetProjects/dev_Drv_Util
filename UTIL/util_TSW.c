@@ -44,6 +44,7 @@
  * Private macros
  */
 #define __TSW_IsIDValid(id)	( (id >= 0) && (id < nb_TIMERS) )
+#define __TSW_Printf		printf
 
 /***************************************************************************************************
  * Private Types
@@ -79,29 +80,31 @@ void TSW_PrintList()
 	uint32_t i = 0;
 	TSW_s* pCherche;
 
-	__Console_Send("Liste:\n");
+	__TSW_Printf("Liste:\n");
 
 	if (FirstTSW.NextTimer == NULL)	{
-		__Console_Send("  vide!\n");
+		__TSW_Printf("  vide!\n");
 		return;
 	}
 
-	pCherche = FirstTSW.NextTimer;
+	pCherche = &FirstTSW;
 
 	do {
-
-		__Console_Send("  %d:0x%08X Start=%08d End=%08d Status=%d\n", (int)i, (unsigned int *)pCherche,
+		pCherche = pCherche->NextTimer;
+		__TSW_Printf("  %d:0x%08X Start=%08d End=%08d Status=%d\n", (int)i, pCherche,
 				(int)pCherche->Start_Value_ms, (int)pCherche->Stop_Value_ms, (int)pCherche->Status);
 		i++;
-		pCherche = pCherche->NextTimer;
 
-	} while (pCherche != NULL);
+
+	} while (pCherche->NextTimer != NULL);
 }
 
 
 
 void TSW_VALIDATION(void)
 {
+	int etape=0;
+
 	TSW_Start(&Tmr0, 1000);
 	TSW_Start(&Tmr1, 3000);
 	TSW_Start(&Tmr2, 5000);
@@ -131,13 +134,13 @@ void TSW_VALIDATION(void)
 	TSW_Start(&Tmr2, 1000);
 	TSW_PrintList();
 
-	int etape=0;
-	__Console_Send("\n");
+	__TSW_Printf(" \n");
+
 	while(1)
 	{
 		if(__TSW_isFinished(Tmr0) == TRUE) {
 			 TSW_Stop(&Tmr0);
-			 __Console_Send("Tmr0 End");
+			 __TSW_Printf(" Tmr0 End");
 		}
 
 		switch (etape)
@@ -151,12 +154,12 @@ void TSW_VALIDATION(void)
 				if (__TSW_isRunning(Tmr1))
 					break;
 
-				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
-				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
-				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
-				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
-				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
-				__Console_Send("\n");
+				__TSW_Printf(" TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__TSW_Printf(" TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__TSW_Printf(" TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__TSW_Printf(" TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__TSW_Printf(" TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__TSW_Printf(" \n");
 
 				TSW_Start(&Tmr1, 1000);
 				etape++;
@@ -166,14 +169,14 @@ void TSW_VALIDATION(void)
 				if (__TSW_isRunning(Tmr1))
 					break;
 
-				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
-				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
-				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
-				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
-				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
-				__Console_Send("\n");
+				__TSW_Printf(" TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__TSW_Printf(" TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__TSW_Printf(" TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__TSW_Printf(" TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__TSW_Printf(" TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__TSW_Printf(" \n");
 
-				__Console_Send("TSW_Pause(&Tmr0)\n");
+				__TSW_Printf(" TSW_Pause(&Tmr0)\n");
 				TSW_Suspend(&Tmr0, TSW_ElapsedTime);
 
 				TSW_Start(&Tmr1, 1000);
@@ -184,14 +187,14 @@ void TSW_VALIDATION(void)
 				if (__TSW_isRunning(Tmr1))
 					break;
 
-				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
-				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
-				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
-				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
-				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
-				__Console_Send("\n");
+				__TSW_Printf(" TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__TSW_Printf(" TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__TSW_Printf(" TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__TSW_Printf(" TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__TSW_Printf(" TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__TSW_Printf(" \n");
 
-				__Console_Send("TSW_Resume(&Tmr0)\n");
+				__TSW_Printf(" TSW_Resume(&Tmr0)\n");
 				TSW_Resume(&Tmr0);
 
 				TSW_Start(&Tmr1, 2000);
@@ -202,12 +205,12 @@ void TSW_VALIDATION(void)
 				if (__TSW_isRunning(Tmr1))
 					break;
 
-				__Console_Send("TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
-				__Console_Send("TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
-				__Console_Send("TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
-				__Console_Send("TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
-				__Console_Send("TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
-				__Console_Send("\n");
+				__TSW_Printf(" TSW_GetStatus(&Tmr0) = %d\n",		Tmr0.Status);
+				__TSW_Printf(" TSW_IsFinished(&Tmr0) = %d\n",		__TSW_isFinished(Tmr0));
+				__TSW_Printf(" TSW_IsRunning(&Tmr0) = %d\n", 		__TSW_isRunning(Tmr0));
+				__TSW_Printf(" TSW_GetElapsedTime(&Tmr0) = %d\n",	(int)TSW_GetElapsedTime(&Tmr0));
+				__TSW_Printf(" TSW_GetRemainingTime(&Tmr0) = %d\n",	(int)TSW_GetRemainingTime(&Tmr0));
+				__TSW_Printf(" \n");
 
 				etape++;
 				break;

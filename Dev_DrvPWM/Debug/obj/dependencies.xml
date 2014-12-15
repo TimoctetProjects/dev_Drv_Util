@@ -5,7 +5,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_Inversion.h" lastModified="14a42b51521">
+      <source file="..\..\..\UTIL\util_Inversion.h" lastModified="14a4f15105b">
          <include file="..\..\..\BSP\bsp_carte.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14a34187d0f">
@@ -26,7 +26,7 @@
       <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14a2f271f52">
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_Console.c" lastModified="14a3b85aca6">
+      <source file="..\..\..\UTIL\util_Console.c" lastModified="14a4389acbc">
          <include file="..\..\..\UTIL\util_Console.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14a2f2711fe">
@@ -36,9 +36,8 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_TSW.h" lastModified="14a3500d091">
+      <source file="..\..\..\UTIL\util_TSW.h" lastModified="14a4382dfc7">
          <include file="..\..\..\BSP\bsp_carte.h"/>
-         <include file="..\..\..\UTIL\util_Console.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14a2f2711fb">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
@@ -46,7 +45,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14a2f2777f5">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_TSW.c" lastModified="14a35001e87">
+      <source file="..\..\..\UTIL\util_TSW.c" lastModified="14a4396d680">
          <include file="..\..\..\UTIL\util_TSW.h"/>
       </source>
       <source file="..\..\..\DRV\drv_GPIO.h" lastModified="14a2f39a2e3">
@@ -83,6 +82,10 @@
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14a2f2715c9">
+      </source>
+      <source file="..\..\..\main.c" lastModified="14a4f144e3d">
+         <include file="..\..\..\APP\app_AffDebug.h"/>
+         <include file="..\..\..\UTIL\util_Inversion.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14a2f28c7e4">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>

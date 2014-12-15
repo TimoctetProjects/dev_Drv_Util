@@ -44,7 +44,7 @@
  * @brief	Validation des inversions
  */
 
-#if	0
+#if	1
 
 #define	INVERSIONTESTVALUE_8	0xF
 #define INVERSIONTESTVALUE_16	0xFF
@@ -67,9 +67,9 @@ Inversion_Validation(
 	uint16_t 	test16 	= INVERSIONTESTVALUE_16 	<< 8;
 	uint32_t 	test32	= INVERSIONTESTVALUE_32 	<< 16;
 
-	Inversion_LSBMSB_u8 (&test8 );
-	Inversion_LSBMSB_u16(&test16);
-	Inversion_LSBMSB_u32(&test32);
+	Inversion_LSBMSB( &test8,  sizeof(test8)  );
+	Inversion_LSBMSB( &test16, sizeof(test16) );
+	Inversion_LSBMSB( &test32, sizeof(test32) );
 
 	return __IsInversionSuccessful(test8, test16, test32);
 }
@@ -104,70 +104,34 @@ Inversion_TabChar(
 }
 
 /**-------------------------------------------------------------------------------------------------
- * @brief	Inversion d'une valeur uint8_t : LSB <-> MSB
+ * @brief	Inversion d'une valeur uint8_t/uint16_t/uint32_t : LSB <-> MSB
  */
 void
-Inversion_LSBMSB_u8(
-	uint8_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
-) {
-
-	uint8_t  b_Inversion = 0, MASK = 0x1;
-	uint8_t valueInv = 0;
-
-	MASK <<= 7;
-
-	for(b_Inversion=0; b_Inversion<8; b_Inversion++) {
-
-		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((8 - 1) - b_Inversion) << b_Inversion;
-	}
-
-	*pValue = valueInv;
-}
-
-/**-------------------------------------------------------------------------------------------------
- * @brief	Inversion d'une valeur uint16_t : LSB <-> MSB
- */
-void
-Inversion_LSBMSB_u16(
-	uint16_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
-) {
-
-	uint8_t  b_Inversion 	= 0;
-	uint16_t MASK 		= 0x1;
-	uint16_t valueInv	 = 0;
-
-	MASK <<= 15;
-
-	for(b_Inversion=0; b_Inversion<16; b_Inversion++) {
-
-		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((16 - 1) - b_Inversion) << b_Inversion;
-	}
-
-	*pValue = valueInv;
-}
-
-/**-------------------------------------------------------------------------------------------------
- * @brief	Inversion d'une valeur uint32_t : LSB <-> MSB
- */
-void
-Inversion_LSBMSB_u32(
-		uint32_t* pValue		/**<[in] Pointeur sur la valeur a inverser */
+Inversion_LSBMSB(
+		void* 		pValue,		/**<[in] Pointeur sur la valeur a inverser */
+		uint32_t 	Size_octet	/**<[in] Nombre d'octets constituant la donnee */
 ) {
 
 	uint8_t  b_Inversion 	= 0;
 	uint32_t MASK 		= 0x1;
 	uint32_t valueInv 	= 0;
 
-	MASK <<= 31;
+	uint32_t* pValue32 = (uint32_t *) pValue;
 
-	for(b_Inversion=0; b_Inversion<32; b_Inversion++) {
+	MASK <<= (Size_octet * 8) - 1;
 
-		valueInv |= ( *pValue & (MASK >> b_Inversion) ) >> ((32 - 1) - b_Inversion) << b_Inversion;
+	for(b_Inversion=0; b_Inversion<(Size_octet * 8); b_Inversion++) {
+
+		valueInv |= ( *pValue32 & (MASK >> b_Inversion) ) >> (((Size_octet * 8) - 1) - b_Inversion) << b_Inversion;
 	}
 
-	*pValue = valueInv;
+	switch(Size_octet) {
+		case sizeof(uint8_t):	*(uint8_t *) pValue32 = (uint8_t ) valueInv;	break;
+		case sizeof(uint16_t):	*(uint16_t *)pValue32 = (uint16_t) valueInv;	break;
+		case sizeof(uint32_t):	*(uint32_t *)pValue32 = (uint32_t) valueInv;	break;
+		default:								break;
+	}
 }
-
 
 /***************************************************************************************************
  * Private Functions definition

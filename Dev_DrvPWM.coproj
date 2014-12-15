@@ -132,9 +132,9 @@
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
     <File name="UTIL/util_Inversion.c" path="UTIL/util_Inversion.c" type="1"/>
-    <File name="DRV/drv_USART.h" path="DRV/drv_USART.h" type="1"/>
     <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
     <File name="UTIL/util_Console.h" path="UTIL/util_Console.h" type="1"/>
+    <File name="DRV/drv_USART.h" path="DRV/drv_USART.h" type="1"/>
     <File name="DRV/drv_TimBase.h" path="DRV/drv_TimBase.h" type="1"/>
     <File name="cmsis_lib/include" path="" type="2"/>
     <File name="main.c" path="main.c" type="1"/>

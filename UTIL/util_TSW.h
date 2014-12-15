@@ -15,7 +15,6 @@
  * Includes
  */
 #include "bsp_carte.h"
-#include "util_Console.h"
 
 /********************************************************************
  * Exported defines

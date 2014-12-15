@@ -35,12 +35,15 @@ main(
 	BSP_Init();
 	SysTick_Config(CONFIG_SYSCLOCK_1ms);
 
+	if(Inversion_Validation() == STATUS_OK)
+		__NOP;
+
 	while(1) {
 
 		Console_main();
 
 		#ifdef  DEBUG_ON
-			//TSW_VALIDATION();
+			//
 			if( __TSW_isFinished(TSW_AffichageRefresh) == TRUE ) {
 				TSW_Start(&TSW_AffichageRefresh, 50);
 				Affichage_Main();
