@@ -18,7 +18,6 @@
  * Includes
  */
 #include "util_TSW.h"
-#include "drv_PWM.h"
 #include "drv_GPIO.h"
 
 /********************************************************************

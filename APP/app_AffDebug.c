@@ -78,13 +78,13 @@ typedef enum {
 	#endif
 
 
-	Etat_BrocheSI_Cam,
+	/*Etat_BrocheSI_Cam,
 	EtatPWM_SERVO_DIRECTION,
 	EtatPWM_SCLK_CAMERA,
 	EtatPWM_H_Bridge_A1,
 	EtatPWM_H_Bridge_A2,
 	EtatPWM_H_Bridge_B1,
-	EtatPWM_H_Bridge_B2,
+	EtatPWM_H_Bridge_B2,*/
 
 
 	nb_Donnes,
@@ -153,14 +153,14 @@ DonneAffiche_s DonneAffiche[nb_Donnes] = {
 #else
 /** DONOTDELETE*/	{	" ",	PIN_NULL,		"",		NULL,		FALSE		},
 #endif
-/** SI Cam */		{	"Impul SI (Camera)",		BROCHE_SI,		"",		(pFunction)GPIO_Value_toString,		TRUE		},
+/** SI Cam */		//{	"Impul SI (Camera)",		BROCHE_SI,		"",		(pFunction)GPIO_Value_toString,		TRUE		},
 
-/** PWM Servo */	{	"PWM Direction (Servo Futuba)",	PIN_SERVO_DRIECTION,	"",		(pFunction)PWM_Value_toString,		TRUE		},
-/** PWM SCLK */		{	"PWM SCLK (Camera)",		BROCHE_CLK,		"",		(pFunction)PWM_Value_toString,		TRUE		},
-/** PWM HB A1 */	{	"PWM HB A1 (Drv Moteur)",	H_BRIDGE_A_IN1,		"",		(pFunction)PWM_Value_toString,		TRUE		},
-/** PWM HB A2 */	{	"PWM HB A2 (Drv Moteur)",	H_BRIDGE_A_IN2,		"",		(pFunction)PWM_Value_toString,		TRUE		},
-/** PWM HB B1 */	{	"PWM HB B1 (Drv Moteur)",	H_BRIDGE_B_IN1,		"",		(pFunction)PWM_Value_toString,		TRUE		},
-/** PWM HB B2 */	{	"PWM HB B2 (Drv Moteur)",	H_BRIDGE_B_IN2,		"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM Servo */	//{	"PWM Direction (Servo Futuba)",	PIN_SERVO_DRIECTION,	"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM SCLK */		//{	"PWM SCLK (Camera)",		BROCHE_CLK,		"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM HB A1 */	//{	"PWM HB A1 (Drv Moteur)",	H_BRIDGE_A_IN1,		"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM HB A2 */	//{	"PWM HB A2 (Drv Moteur)",	H_BRIDGE_A_IN2,		"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM HB B1 */	//{	"PWM HB B1 (Drv Moteur)",	H_BRIDGE_B_IN1,		"",		(pFunction)PWM_Value_toString,		TRUE		},
+/** PWM HB B2 */	//{	"PWM HB B2 (Drv Moteur)",	H_BRIDGE_B_IN2,		"",		(pFunction)PWM_Value_toString,		TRUE		},
 };
 
 
@@ -184,11 +184,13 @@ Affichage_Main
 
 	static Etape_Affichage_e Etape = Affichage_Initialisation;
 
-	switch(Etape) {
+	if(Console_GetPresence()) {
+		switch(Etape) {
 
-		case Affichage_Initialisation:		Etape = Affichage_Intro();	break;
-		case Affichage_DataPinAndValue:		Etape = Affichage_Data();	break;
-		default:								break;
+			case Affichage_Initialisation:		Etape = Affichage_Intro();	break;
+			case Affichage_DataPinAndValue:		Etape = Affichage_Data();	break;
+			default:								break;
+		}
 	}
 }
 

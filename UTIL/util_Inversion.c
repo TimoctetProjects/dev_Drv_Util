@@ -21,7 +21,7 @@
 /***************************************************************************************************
  * Private macros
  */
-#define __InversionPrintf(arg ...)	printf(...)
+#define __InversionPrintf(args ...)	printf(## args)
 
 
 
@@ -44,7 +44,7 @@
  * @brief	Validation des inversions
  */
 
-#if	1
+#if	0
 
 #define	INVERSIONTESTVALUE_8	0xF
 #define INVERSIONTESTVALUE_16	0xFF
@@ -126,7 +126,7 @@ Inversion_LSBMSB(
 	}
 
 	switch(Size_octet) {
-		case sizeof(uint8_t):	*(uint8_t *) pValue32 = (uint8_t ) valueInv;	break;
+		case sizeof(uint8_t):	*(uint8_t  *)pValue32 = (uint8_t ) valueInv;	break;
 		case sizeof(uint16_t):	*(uint16_t *)pValue32 = (uint16_t) valueInv;	break;
 		case sizeof(uint32_t):	*(uint32_t *)pValue32 = (uint32_t) valueInv;	break;
 		default:								break;

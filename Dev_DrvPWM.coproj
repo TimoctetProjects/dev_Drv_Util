@@ -88,7 +88,6 @@
     <File name="cmsis_lib/include/stm32f4xx_syscfg.h" path="cmsis_lib/include/stm32f4xx_syscfg.h" type="1"/>
     <File name="UTIL/util_TSW.c" path="UTIL/util_TSW.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
-    <File name="DRV/drv_InputCapture.h" path="DRV/drv_InputCapture.h" type="1"/>
     <File name="BSP/bsp_carte.c" path="BSP/bsp_carte.c" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
@@ -96,7 +95,6 @@
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="DRV/drv_GPIO.h" path="DRV/drv_GPIO.h" type="1"/>
-    <File name="DRV/drv_PWM.c" path="DRV/drv_PWM.c" type="1"/>
     <File name="UTIL/util_Inversion.h" path="UTIL/util_Inversion.h" type="1"/>
     <File name="DRV/drv_USART.c" path="DRV/drv_USART.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
@@ -105,7 +103,6 @@
     <File name="DRV" path="" type="2"/>
     <File name="cmsis_lib/source" path="" type="2"/>
     <File name="BSP" path="" type="2"/>
-    <File name="DRV/drv_InputCapture.c" path="DRV/drv_InputCapture.c" type="1"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
     <File name="stdio/printf.c" path="stdio/printf.c" type="1"/>
@@ -113,19 +110,20 @@
     <File name="APP/app_AffDebug.h" path="APP/app_AffDebug.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_syscfg.c" path="cmsis_lib/source/stm32f4xx_syscfg.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
-    <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
     <File name="stdio" path="" type="2"/>
+    <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_pwr.c" path="cmsis_lib/source/stm32f4xx_pwr.c" type="1"/>
     <File name="UTIL/util_TSW.h" path="UTIL/util_TSW.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
+    <File name="UTIL/util_FIFO.c" path="UTIL/util_FIFO.c" type="1"/>
     <File name="DRV/drv_TimBase.c" path="DRV/drv_TimBase.c" type="1"/>
     <File name="UTIL/util_Console.c" path="UTIL/util_Console.c" type="1"/>
     <File name="UTIL" path="" type="2"/>
     <File name="cmsis" path="" type="2"/>
+    <File name="UTIL/util_FIFO.h" path="UTIL/util_FIFO.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
-    <File name="DRV/drv_PWM.h" path="DRV/drv_PWM.h" type="1"/>
     <File name="BSP/bsp_carte.h" path="BSP/bsp_carte.h" type="1"/>
     <File name="APP/app_AffDebug.c" path="APP/app_AffDebug.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_tim.c" path="cmsis_lib/source/stm32f4xx_tim.c" type="1"/>

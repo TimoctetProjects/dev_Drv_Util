@@ -47,7 +47,7 @@ typedef enum {
 	Periph_Tim13,
 	Periph_Tim14,
 
-	nb_Periph,
+	nb_TimPeriph,
 
 	err_NotATimPeriph
 
@@ -66,13 +66,22 @@ typedef enum {
 
 }ListeTimChannels_e;
 
+typedef enum {
+
+	PeriphTim_Unused = 0,
+	PeriphTim_PWM,
+	PeriphTim_IC
+
+}Etat_PeriphTim_e;
+
 /********************************************************************
  * Exported Function
  */
 void TimeBase_init(
-	Mapping_GPIO_e	IdPinPwm,		/**<[in] ID de la Pin ou générer la PWM*/
+	uint32_t	Periph,			/**<[in] ID de la Pin ou générer la PWM*/
 	uint32_t 	TIM_Periode,		/**<[in] Periode de comptage */
 	uint32_t 	TIM_Prescaler 		/**<[in] Prescaler du TimeBase */
 );
+
 
 #endif

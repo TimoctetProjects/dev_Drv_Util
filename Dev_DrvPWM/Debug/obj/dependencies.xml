@@ -11,6 +11,9 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14a34187d0f">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
+      <source file="..\..\..\UTIL\util_Inversion.c" lastModified="14a4f19dc63">
+         <include file="..\..\..\UTIL\util_Inversion.h"/>
+      </source>
       <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14a2f271f49">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
@@ -18,16 +21,13 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_Console.h" lastModified="14a3b86a828">
+      <source file="..\..\..\UTIL\util_Console.h" lastModified="14ae3693d60">
          <include file="..\..\..\BSP\bsp_carte.h"/>
          <include file="..\..\..\UTIL\util_TSW.h"/>
          <include file="..\..\..\DRV\drv_USART.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14a2f271f52">
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
-      </source>
-      <source file="..\..\..\UTIL\util_Console.c" lastModified="14a4389acbc">
-         <include file="..\..\..\UTIL\util_Console.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14a2f2711fe">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
@@ -36,7 +36,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_TSW.h" lastModified="14a4382dfc7">
+      <source file="..\..\..\UTIL\util_TSW.h" lastModified="14ae36c0ff8">
          <include file="..\..\..\BSP\bsp_carte.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14a2f2711fb">
@@ -45,14 +45,20 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14a2f2777f5">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\UTIL\util_TSW.c" lastModified="14a4396d680">
+      <source file="..\..\..\UTIL\util_TSW.c" lastModified="14ae36b5b57">
          <include file="..\..\..\UTIL\util_TSW.h"/>
+      </source>
+      <source file="..\..\..\UTIL\util_FIFO.h" lastModified="1491f2fd485">
+         <include file="..\..\..\BSP\bsp_carte.h"/>
       </source>
       <source file="..\..\..\DRV\drv_GPIO.h" lastModified="14a2f39a2e3">
          <include file="..\..\..\BSP\bsp_carte.h"/>
          <include file="..\..\..\UTIL\util_Console.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14a2f2715bc">
+      </source>
+      <source file="..\..\..\UTIL\util_FIFO.c" lastModified="14a1f077ee6">
+         <include file="..\..\..\UTIL\util_FIFO.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14a2f2715b2">
       </source>
@@ -83,8 +89,9 @@
       </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14a2f2715c9">
       </source>
-      <source file="..\..\..\main.c" lastModified="14a4f144e3d">
+      <source file="..\..\..\main.c" lastModified="14ae30e412c">
          <include file="..\..\..\APP\app_AffDebug.h"/>
+         <include file="..\..\..\DRV\drv_TimBase.h"/>
          <include file="..\..\..\UTIL\util_Inversion.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14a2f28c7e4">
@@ -94,57 +101,41 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\DRV\drv_TimBase.h" lastModified="14a2e3c5966">
+      <source file="..\..\..\DRV\drv_TimBase.h" lastModified="14a54b8ac81">
          <include file="..\..\..\BSP\bsp_carte.h"/>
       </source>
-      <source file="..\..\..\DRV\drv_TimBase.c" lastModified="14a1f0dd7a3">
+      <source file="..\..\..\DRV\drv_TimBase.c" lastModified="14a54b7bcde">
          <include file="..\..\..\DRV\drv_TimBase.h"/>
       </source>
-      <source file="..\..\..\BSP\bsp_carte.h" lastModified="14a3b873787">
+      <source file="..\..\..\BSP\bsp_carte.h" lastModified="14ae32f6973">
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
          <include file="..\..\..\cmsis\core_cm4.h"/>
       </source>
-      <source file="..\..\..\APP\app_AffDebug.h" lastModified="14a2f411158">
+      <source file="..\..\..\APP\app_AffDebug.h" lastModified="14a54a2605b">
          <include file="..\..\..\UTIL\util_TSW.h"/>
-         <include file="..\..\..\DRV\drv_PWM.h"/>
          <include file="..\..\..\DRV\drv_GPIO.h"/>
       </source>
-      <source file="..\..\..\DRV\drv_InputCapture.h" lastModified="149d40fb6de">
-         <include file="..\..\..\DRV\drv_TimBase.h"/>
-      </source>
-      <source file="..\..\..\DRV\drv_PWM.h" lastModified="14a2f393105">
-         <include file="..\..\..\DRV\drv_TimBase.h"/>
-         <include file="..\..\..\UTIL\util_Console.h"/>
-      </source>
-      <source file="..\..\..\BSP\bsp_carte.c" lastModified="14a348d044c">
+      <source file="..\..\..\BSP\bsp_carte.c" lastModified="14ae30342ea">
          <include file="..\..\..\BSP\bsp_carte.h"/>
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\DRV\drv_USART.h" lastModified="14ae2f08a05">
+         <include file="..\..\..\BSP\bsp_carte.h"/>
+         <include file="..\..\..\UTIL\util_FIFO.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cm4.h" lastModified="14a2f2715a3">
          <include file="..\..\..\cmsis\core_cmInstr.h"/>
          <include file="..\..\..\cmsis\core_cmFunc.h"/>
          <include file="..\..\..\cmsis\core_cm4_simd.h"/>
       </source>
-      <source file="..\..\..\DRV\drv_USART.h" lastModified="14a2f38d854">
-         <include file="..\..\..\BSP\bsp_carte.h"/>
-      </source>
-      <source file="..\..\..\DRV\drv_InputCapture.c" lastModified="149d4152aa8">
-         <include file="..\..\..\DRV\drv_InputCapture.h"/>
-      </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14a2f2711a5">
       </source>
-      <source file="..\..\..\APP\app_AffDebug.c" lastModified="14a3b879649">
+      <source file="..\..\..\APP\app_AffDebug.c" lastModified="14ae34b3168">
          <include file="..\..\..\APP\app_AffDebug.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14a2f27112c">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\DRV\drv_PWM.c" lastModified="14a3b86d762">
-         <include file="..\..\..\DRV\drv_PWM.h"/>
-      </source>
-      <source file="..\..\..\DRV\drv_USART.c" lastModified="14a306353c5">
-         <include file="..\..\..\DRV\drv_USART.h"/>
       </source>
       <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14a2f271149">
       </source>

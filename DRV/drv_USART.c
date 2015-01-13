@@ -51,10 +51,8 @@ typedef struct {
 	InterruptState_e	InterrupState;
 	Mapping_GPIO_e		IDMapp_PinRX;
 	Mapping_GPIO_e		IDMapp_PinTX;
+	FiFo_s			FIFO;
 
-	#ifdef FIFO_H
-		FiFo_s			FIFO;
-	#endif
 
 }Usart_s;
 
@@ -107,14 +105,6 @@ Usart_InitPeriph(
 
 	//----------------------------------------------------------
 	//---------- Declaration des structures d'initialisation
-	USART_ClockInitTypeDef USART_Clock_init = {
-
-			.USART_Clock 	= USART_Clock_Enable,
-			.USART_CPOL 	= USART_CPOL_Low,
-			.USART_CPHA 	= USART_CPHA_1Edge,
-			.USART_LastBit 	= USART_LastBit_Enable,
-	};
-
 	USART_InitTypeDef xUSART_Init = {
 
 			.USART_BaudRate			= Baudrate,
@@ -140,6 +130,7 @@ Usart_InitPeriph(
 
 								__USART[ USART_GetPeriphEnum(Mapping_GPIO[ID_PinTX].Periph) ].IDMapp_PinTX = ID_PinTX;
 								__USART[ USART_GetPeriphEnum(Mapping_GPIO[ID_PinRX].Periph) ].IDMapp_PinRX = ID_PinRX;
+								ID_Pin = ID_PinTX;
 							  }
 
 	else if(ID_PinTX != PIN_NULL) { ID_Pin = ID_PinTX; 	xUSART_Init.USART_Mode = USART_Mode_Tx; }
@@ -149,31 +140,30 @@ Usart_InitPeriph(
 
 
 	//---------- Activation horloges et init
-	USART_RccInit			( Mapping_GPIO[ID_PinTX].Periph						);
+	USART_RccInit			( Mapping_GPIO[ID_Pin].Periph						);
 	USART_Init			( (USART_TypeDef*) Mapping_GPIO[ID_Pin].Periph, &xUSART_Init		);
-	USART_ClockInit			( (USART_TypeDef*) Mapping_GPIO[ID_Pin].Periph, &USART_Clock_init	);
+	//USART_ClockInit			( (USART_TypeDef*) Mapping_GPIO[ID_Pin].Periph, &USART_Clock_init	);
+
+	//---------- Démarrer le périphérique
+	USART_Cmd			( (USART_TypeDef*) Mapping_GPIO[ID_Pin].Periph, ENABLE );
 
 	//---------- Activation interruption si besoin est
 	if( ID_PinRX != PIN_NULL && Mapping_GPIO[ID_PinRX].Etat_Interruption == Interrupt_ON ) {
 
 		NVIC_InitStructure.NVIC_IRQChannel 			= USART6_IRQn;
-		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 	= 0;
-		NVIC_InitStructure.NVIC_IRQChannelSubPriority 		= 0;
+		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 	= 14;
+		NVIC_InitStructure.NVIC_IRQChannelSubPriority 		= 0x01;
 		NVIC_InitStructure.NVIC_IRQChannelCmd 			= ENABLE;
 		NVIC_Init( &NVIC_InitStructure );
+		USART_ITConfig( USART6, USART_IT_RXNE, ENABLE );
 	}
 
-	//---------- Démarrer le périphérique
-	USART_Cmd			( (USART_TypeDef*) Mapping_GPIO[ID_Pin].Periph, ENABLE );
 
 	//---------- Save init
 	__USART_SetInitializedState	( Mapping_GPIO[ID_Pin].Periph, TRUE 	  );
 	__USART_SetBaudRateState	( Mapping_GPIO[ID_Pin].Periph, Baudrate );
 
-
-	#ifdef FIFO_H
-		FiFo_init(&__USART[Periph_USART6].FIFO, 10, sizeof(uint8_t));
-	#endif
+	FiFo_init(&__USART[Periph_USART6].FIFO, 10, sizeof(uint8_t));
 
 	//---------- Init OK
 	return UsartOK;
@@ -249,7 +239,7 @@ USART_Write(
 	return UsartOK;
 }
 
-#ifdef UTIL_FIFO_H
+
 /**------------------------------------------------------------------
  *
  * @brief	Lecture du buffer de reception.
@@ -291,15 +281,23 @@ void
 USART6_IRQHandler(
 	void
 ) {
+	int uartStatusRegister = 0;
+
+	if (USART_GetITStatus(USART6, USART_IT_ORE_RX) == SET) {
+
+		uartStatusRegister = uartStatusRegister | USART_IT_ORE_RX;
+		USART_ReceiveData(USART6);
+		USART_ClearITPendingBit(USART6, USART_IT_ORE_RX);
+	}
 
 	//----------- Verification qu'un donne soit reçu
-	while ( USART_GetITStatus(USART6, USART_IT_RXNE) == SET ) {
+	if ( USART_GetITStatus(USART6, USART_IT_RXNE) == SET ) {
 
 		FiFo_Push(&__USART[Periph_USART6].FIFO, (uint8_t) USART_ReceiveData(USART6));
-		USART_ClearFlag(USART6, USART_IT_RXNE);
+		USART_ClearITPendingBit(USART6, USART_IT_RXNE);
 	}
 }
-#endif
+
 
 /********************************************************************
  * Private Fonction Definition

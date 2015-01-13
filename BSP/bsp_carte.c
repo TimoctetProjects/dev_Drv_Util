@@ -92,8 +92,8 @@ BSP_Init(
 	SystemCoreClockUpdate();
 
 
-	/*NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x08000000);
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4 );*/
+	//NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x08000000);
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4 );
 
 	//----------------------------------------------------------------
 	//---------------- Init des Pins

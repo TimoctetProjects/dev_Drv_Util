@@ -1,5 +1,4 @@
 /***************************************************************************************************
- ***************************************************************************************************
  *
  * @author	Duclos Timothe
  * @date	09/12/2014
@@ -8,11 +7,7 @@
  *
  * @note	How to use this utilitie
  *
- * 		First declare a TSW using these following methods:
- * 			- local variable:  	use the macro @ref __TSW_New
- * 						with the name you want
- * 			- global variable:	use the typedef @ref TSW_s
- * 		This is done like this so the TSW is in a reset state
+ * 		First declare a TSW using the type @ref TSW_s
  *
  * 		Then start the Timer using @ref TSW_Start with the value
  * 		expressed in milliseconds
