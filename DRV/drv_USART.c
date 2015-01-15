@@ -53,7 +53,6 @@ typedef struct {
 	Mapping_GPIO_e		IDMapp_PinTX;
 	FiFo_s			FIFO;
 
-
 }Usart_s;
 
 /********************************************************************

@@ -45,10 +45,11 @@
 
 #define __NOP				asm("nop")
 
-#define __strncmp(str1, str2, args...)	( 	strncmp( (char *)str1, (char *)str2, ## args ) 	)
-#define __strncpy(str1, str2, args...)	( 	strncpy( (char *)str1, (char *)str2, ## args ) 	)
-#define __strlen(str1)			( 	strlen(  (char *)str1 			     ) 	)
-#define __strncat(str1, str2, args...)	( 	strncat( (char *)str1, 	 (char *)str2, ## args) )
+#define __strncmp(sTR1, sTR2, args...)	 strncmp( (char *)sTR1,  (char *)sTR2, ## args)
+#define __strncpy(sTR1, sTR2, args...)	 strncpy( (char *)sTR1,  (char *)sTR2, ## args)
+#define __strlen(sTR1)			 strlen(  (char *)sTR1 			      )
+#define __strncat(sTR1, sTR2, args...)	 strncat( (char *)sTR1,  (char *)sTR2, ## args)
+#define __snprintf(sTRING, args...)	 snprintf((char *)sTRING, ## args)
 
 
 /********************************************************************
@@ -68,10 +69,10 @@ typedef enum {
 /** Status */
 typedef enum {
 
-	STATUS_KO = 0,
+	STATUS_FINIS = 0,
+	STATUS_KO,
 	STATUS_OK,
 	STATUS_ENCOURS,
-	STATUS_FINIS,
 
 }Status_e;
 
@@ -112,7 +113,7 @@ typedef enum {
 	CONSOLE_RX,
 
 	/* Pin Camera */
-	BROCHE_SI,
+	Broche_SI,
 	BROCHE_CLK,
 
 	/* Leds Discovery Board */
@@ -121,13 +122,8 @@ typedef enum {
 	/* Bouton Poussoir */
 	BTN_WKP,
 
-	/* BMC33887 interface */
-	H_BRIDGE_A_IN1,
-	H_BRIDGE_A_IN2,
-	H_BRIDGE_B_IN1,
-	H_BRIDGE_B_IN2,
+	LigneCam,
 
-	MesureTimeADC,
 
 	nb_GPIO,
 
@@ -170,21 +166,14 @@ const static Mapping_GPIO_s Mapping_GPIO[nb_GPIO] = {
 /** CONSOLE_TX			*/	{ 	GPIOC,		GPIO_Pin_6,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_USART6,			NULL,			Interrupt_OFF,		NULL,				(uint32_t) USART6	},
 /** CONSOLE_RX  		*/	{ 	GPIOC,		GPIO_Pin_7,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_USART6,			NULL,			Interrupt_ON,		NULL,				(uint32_t) USART6	},
 /** -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  */
-/** Broche_SI			*/	{ 	GPIOB,		GPIO_Pin_11,		GPIO_Mode_OUT,		FALSE,		GPIO_Speed_2MHz,		GPIO_OType_PP,			GPIO_PuPd_DOWN,			NULL,				NULL,			Interrupt_OFF,		ETAT_INACTIF,			NULL			},
-/** Broche_CLK  		*/	{ 	GPIOA,		GPIO_Pin_3,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM2,			TIM_Channel_4,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM2		},
+/** Broche_SI			*/	{	GPIOB,		GPIO_Pin_4,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM3,			TIM_Channel_1,		Interrupt_ON,		ETAT_INACTIF,			(uint32_t) TIM3		},
+/** BROCHE_CLK  		*/	{ 	GPIOA,		GPIO_Pin_3,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM2,			TIM_Channel_4,		Interrupt_ON,		ETAT_INACTIF,			(uint32_t) TIM2		},
 /** ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  */
 /** PIN_SERVO_DRIECTION  	*/	{ 	GPIOD,		GPIO_Pin_15,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM4,			TIM_Channel_4,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM4		},
 /** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  */
-/** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 /** BTN_WKP			*/	{	GPIOA,		GPIO_Pin_0,		GPIO_Mode_IN,		FALSE,		GPIO_Speed_2MHz,		NULL,				GPIO_PuPd_NOPULL,		NULL,				NULL,			NULL,			ETAT_INACTIF,			NULL			},
-/** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-/** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-/** H_BRIDGE_A_IN1		*/	{	GPIOB,		GPIO_Pin_4,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM3,			TIM_Channel_1,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM3		},
-/** H_BRIDGE_A_IN2		*/	{	GPIOB,		GPIO_Pin_5,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM3,			TIM_Channel_2,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM3		},
-/** H_BRIDGE_B_IN1		*/	{	GPIOB,		GPIO_Pin_0,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM3,			TIM_Channel_3,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM3		},
-/** H_BRIDGE_B_IN2		*/	{	GPIOB,		GPIO_Pin_1,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM3,			TIM_Channel_4,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM3		},
-/** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-/** MesureTimeADC  		*/	{ 	GPIOA,		GPIO_Pin_2,		GPIO_Mode_AF,		FALSE,		GPIO_Speed_50MHz,		GPIO_OType_PP,			GPIO_PuPd_NOPULL,		GPIO_AF_TIM2,			TIM_Channel_3,		Interrupt_OFF,		ETAT_INACTIF,			(uint32_t) TIM2		},
+/** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  */
+/** LigneCam			*/	{	GPIOC,		GPIO_Pin_1,		GPIO_Mode_AN,		FALSE,		GPIO_Speed_50MHz,		NULL,				GPIO_PuPd_NOPULL,		NULL,				ADC_Channel_11,		Interrupt_ON,		ETAT_INACTIF,			(uint32_t) ADC1		},
 /** ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 };
 

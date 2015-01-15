@@ -57,13 +57,13 @@ typedef struct {
 /***************************************************************************************************
  * Exported Fonction
  */
-void	 TSW_StartUntil		(TSW_s*	Timer, uint32_t Until_ms, uint32_t Value_ms);
 void 	 TSW_Start		(TSW_s* Timer, uint32_t  Value_ms);
 void	 TSW_StructInit		(TSW_s* Timer);
 void 	 TSW_Reset		(TSW_s* Timer);
 void 	 TSW_Stop		(TSW_s* Timer);
 void	 TSW_Resume		(TSW_s*	Timer);
 uint32_t TSW_Suspend		(TSW_s* Timer, TSW_ListeChoixValeurs Choix);
+uint32_t TSW_StartUntil		(TSW_s*	Timer, uint32_t Until_ms, uint32_t Value_ms);
 uint32_t TSW_GetElapsedTime	(TSW_s* Timer);
 uint32_t TSW_GetRemainingTime	(TSW_s* Timer);
 uint32_t TSW_GetElapsedTime	(TSW_s* Timer);

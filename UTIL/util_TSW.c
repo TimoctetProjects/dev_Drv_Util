@@ -237,7 +237,7 @@ TSW_Start(
 /**-------------------------------------------------------------------------------------------------
  * @brief	Demarrer le timer a partir d'une valeur (permet reglage plus precis)
  */
-void
+uint32_t
 TSW_StartUntil(
 	TSW_s*	 Timer,		/**<[in] Adresse du timer */
 	uint32_t Until_ms,	/**<[in] Valeur a partir de laquelle compter */
@@ -248,8 +248,15 @@ TSW_StartUntil(
 
 	Timer->Etat 		= ETAT_ACTIF;
 	Timer->Status 		= STATUS_ENCOURS;
-	Timer->Stop_Value_ms 	= Until_ms + Value_ms;
+
+	if(Until_ms != 0)
+		Timer->Stop_Value_ms 	= Until_ms + Value_ms;
+	else
+		Timer->Stop_Value_ms 	= msTicks + Value_ms;
+
 	Timer->Start_Value_ms 	= msTicks;
+
+	return Timer->Stop_Value_ms;
 }
 
 /**-------------------------------------------------------------------------------------------------
